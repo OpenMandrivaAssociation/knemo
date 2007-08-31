@@ -59,7 +59,7 @@ it has to be started using Control Center/KDE Components/Service Manager.
 rm -rf %{buildroot}
 %makeinstall
 
-%find_lang %{name}
+%find_lang %{name} %{name} kcm_knemo knemod
 
 %clean
 rm -rf %{buildroot}

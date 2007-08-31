@@ -1,5 +1,5 @@
 %define	name	knemo
-%define	version	0.4.5
+%define	version	0.4.8
 %define	release	%mkrel 1
 %define	Summary	The KDE Network Monitor
 
@@ -50,7 +50,7 @@ it has to be started using Control Center/KDE Components/Service Manager.
 %setup -q
 
 %build
-%configure	--disable-rpath \
+%configure2_5x	--disable-rpath \
 		--enable-final
 
 %make
@@ -59,21 +59,18 @@ it has to be started using Control Center/KDE Components/Service Manager.
 rm -rf %{buildroot}
 %makeinstall
 
-# We need some way for knemo to find it kcm module
-# suggested patch on URL seems wrong!
-# What is this about? This seem wrong too. But it works!
-mkdir -p %{buildroot}%{_menudir}
-kdedesktop2mdkmenu.pl %{name} Configuration/KDE/Network %{buildroot}%{_datadir}/applications/kde/kcm_knemo.desktop kde
-%find_lang %{name} --all-name
+%find_lang %{name}
 
 %clean
 rm -rf %{buildroot}
 
 %post
 %{update_menus}
+%update_icon_cache hicolor
 
 %postun
 %{clean_menus}
+%clean_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(-,root,root)
@@ -83,8 +80,5 @@ rm -rf %{buildroot}
 %{_libdir}/kde3/kded_knemod.so
 %{_datadir}/applications/kde/kcm_knemo.desktop
 %{_datadir}/services/kded/knemod.desktop
-
-%{_datadir}/icons/*/*/actions/*.png
-%{_datadir}/icons/*/*/apps/*.png
-
-%{_datadir}/apps/knemo/eventsrc
+%{_datadir}/icons/*/*/*/*.png
+%{_datadir}/apps/knemo

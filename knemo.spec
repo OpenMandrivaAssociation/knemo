@@ -13,7 +13,6 @@ Group:		Graphical desktop/KDE
 Source0:	%{name}-%{version}.tar.bz2
 URL:		http://kde-apps.org/content/show.php?content=12956
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs-devel
 Requires:	wireless-tools
 

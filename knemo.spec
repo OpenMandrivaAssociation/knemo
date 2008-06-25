@@ -1,6 +1,6 @@
 %define	name	knemo
 %define	version	0.4.8
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 %define	Summary	The KDE Network Monitor
 
 Summary:	%{Summary}
@@ -46,24 +46,6 @@ are correct and that both programs are installed.
 IMPORTANT: KNemo is not an executable but an KDED service. Therefore 
 it has to be started using Control Center/KDE Components/Service Manager. 
 
-%prep
-%setup -q
-
-%build
-%configure2_5x	--disable-rpath \
-		--enable-final
-
-%make
-
-%install
-rm -rf %{buildroot}
-%makeinstall
-
-%find_lang %{name} %{name} kcm_knemo knemod
-
-%clean
-rm -rf %{buildroot}
-
 %if %mdkversion < 200900
 %post
 %{update_menus}
@@ -78,11 +60,29 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%{_libdir}/kde3/kcm_knemo.la
-%{_libdir}/kde3/kcm_knemo.so
-%{_libdir}/kde3/kded_knemod.la
-%{_libdir}/kde3/kded_knemod.so
-%{_datadir}/applications/kde/kcm_knemo.desktop
-%{_datadir}/services/kded/knemod.desktop
-%{_datadir}/icons/*/*/*/*.png
-%{_datadir}/apps/knemo
+%{_kde3_libdir}/kde3/kcm_knemo.la
+%{_kde3_libdir}/kde3/kcm_knemo.so
+%{_kde3_libdir}/kde3/kded_knemod.la
+%{_kde3_libdir}/kde3/kded_knemod.so
+%{_kde3_datadir}/applications/kde/kcm_knemo.desktop
+%{_kde3_datadir}/services/kded/knemod.desktop
+%{_kde3_datadir}/icons/*/*/*/*.png
+%{_kde3_datadir}/apps/knemo
+
+#--------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+%configure_kde3
+%make
+
+%install
+rm -rf %{buildroot}
+%makeinstall
+
+%find_lang %{name} %{name} kcm_knemo knemod
+
+%clean
+rm -rf %{buildroot}

@@ -1,6 +1,6 @@
 %define	name	knemo
 %define	version	0.4.8
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 %define	Summary	The KDE Network Monitor
 
 Summary:	%{Summary}

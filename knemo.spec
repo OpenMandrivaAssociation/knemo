@@ -80,7 +80,7 @@ it has to be started using Control Center/KDE Components/Service Manager.
 
 %install
 rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 
 %find_lang %{name} %{name} kcm_knemo knemod
 

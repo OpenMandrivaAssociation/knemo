@@ -15,6 +15,7 @@ URL:		http://kde-apps.org/content/show.php?content=12956
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
+BuildRequires:  libiw-devel
 Requires:	wireless-tools
 
 %description

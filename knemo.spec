@@ -1,6 +1,6 @@
 %define	name	knemo
-%define	version	0.4.8
-%define	release	%mkrel 3
+%define	version	0.5.1
+%define	release	%mkrel 1
 %define	Summary	The KDE Network Monitor
 
 Summary:	%{Summary}
@@ -10,11 +10,11 @@ Release:	%{release}
 
 License:	GPL
 Group:		Graphical desktop/KDE
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.gz
 URL:		http://kde-apps.org/content/show.php?content=12956
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	kdelibs-devel
+BuildRequires:	kdelibs4-devel
 Requires:	wireless-tools
 
 %description
@@ -46,28 +46,15 @@ are correct and that both programs are installed.
 IMPORTANT: KNemo is not an executable but an KDED service. Therefore 
 it has to be started using Control Center/KDE Components/Service Manager. 
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%clean_icon_cache hicolor
-%endif
-
 %files -f %{name}.lang
 %defattr(-,root,root)
-%{_kde3_libdir}/kde3/kcm_knemo.la
-%{_kde3_libdir}/kde3/kcm_knemo.so
-%{_kde3_libdir}/kde3/kded_knemod.la
-%{_kde3_libdir}/kde3/kded_knemod.so
-%{_kde3_datadir}/applications/kde/kcm_knemo.desktop
-%{_kde3_datadir}/services/kded/knemod.desktop
-%{_kde3_datadir}/icons/*/*/*/*.png
-%{_kde3_datadir}/apps/knemo
+%_kde_bindir/knemo
+%_kde_libdir/kde4/kcm_knemo.so
+%_kde_datadir/applications/kde4/knemo.desktop
+%_kde_appsdir/knemo
+%_kde_datadir/autostart/knemo.desktop
+%_kde_iconsdir/hicolor/*/apps/*
+%_kde_datadir/kde4/services/kcm_knemo.desktop
 
 #--------------------------------------------------------------------
 
@@ -75,12 +62,12 @@ it has to be started using Control Center/KDE Components/Service Manager.
 %setup -q
 
 %build
-%configure_kde3
+%cmake_kde4
 %make
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std
+%makeinstall_std -C build
 
 %find_lang %{name} %{name} kcm_knemo knemod
 

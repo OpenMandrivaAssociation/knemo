@@ -1,5 +1,5 @@
 %define	name	knemo
-%define	version	0.5.2
+%define	version	0.5.80
 %define	release	%mkrel 1
 %define	Summary	The KDE Network Monitor
 
@@ -10,12 +10,13 @@ Release:	%{release}
 
 License:	GPL
 Group:		Graphical desktop/KDE
-Source0:	%{name}-%{version}.tar.gz
+Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.gz
 URL:		http://kde-apps.org/content/show.php?content=12956
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:  libiw-devel
+BuildRequires:  libnl-devel
 Requires:	wireless-tools
 
 %description
@@ -54,7 +55,7 @@ it has to be started using Control Center/KDE Components/Service Manager.
 %_kde_datadir/applications/kde4/knemo.desktop
 %_kde_appsdir/knemo
 %_kde_datadir/autostart/knemo.desktop
-%_kde_iconsdir/hicolor/*/apps/*
+%_kde_iconsdir/hicolor/*/*/*
 %_kde_datadir/kde4/services/kcm_knemo.desktop
 
 #--------------------------------------------------------------------

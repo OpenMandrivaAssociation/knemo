@@ -1,5 +1,5 @@
 %define	name	knemo
-%define	version	0.6.0
+%define	version	0.6.1
 %define	release	%mkrel 1
 %define	Summary	The KDE Network Monitor
 
@@ -10,7 +10,7 @@ Release:	%{release}
 
 License:	GPL
 Group:		Graphical desktop/KDE
-Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.gz
+Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.bz2
 URL:		http://kde-apps.org/content/show.php?content=12956
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot

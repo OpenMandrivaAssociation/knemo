@@ -1,5 +1,5 @@
 %define	name	knemo
-%define	version	0.6.3
+%define	version	0.6.80
 %define	release	%mkrel 1
 %define	Summary	The KDE Network Monitor
 
@@ -54,6 +54,7 @@ it has to be started using Control Center/KDE Components/Service Manager.
 %_kde_libdir/kde4/kcm_knemo.so
 %_kde_datadir/applications/kde4/knemo.desktop
 %_kde_appsdir/knemo
+%_kde_appsdir/kconf_update/*
 %_kde_datadir/autostart/knemo.desktop
 %_kde_iconsdir/hicolor/*/*/*
 %_kde_datadir/kde4/services/kcm_knemo.desktop

@@ -1,5 +1,5 @@
 %define	name	knemo
-%define	version	0.6.80
+%define	version	0.7.0
 %define	release	%mkrel 1
 %define	Summary	The KDE Network Monitor
 
@@ -18,6 +18,7 @@ BuildRequires:	kdelibs4-devel
 BuildRequires:  libiw-devel
 BuildRequires:  libnl-devel
 Requires:	wireless-tools
+Requires:	qt4-database-plugin-sqlite
 
 %description
 KNemo offers a network monitor similar to the one found in Windows. 

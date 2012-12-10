@@ -1,14 +1,15 @@
 Summary:	The KDE Network Monitor
 Name:		knemo
-Version:	0.7.3
-Release:	1
+Version:	0.7.5
+Release:	2
 License:	GPL
 Group:		Graphical desktop/KDE
 Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.bz2
 URL:		http://kde-apps.org/content/show.php?content=12956
 BuildRequires:	kdelibs4-devel
 BuildRequires:	libiw-devel
-BuildRequires:	libnl-devel
+BuildRequires:	pkgconfig(libnl-3.0)
+BuildRequires:	kdebase4-workspace-devel
 Requires:	wireless-tools
 Requires:	qt4-database-plugin-sqlite
 
@@ -49,14 +50,9 @@ it has to be started using Control Center/KDE Components/Service Manager.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std -C build
 
-%if %{mdvver} < 201200
-%find_lang %{name} %{name} kcm_knemo knemod
-%else
 %find_lang %{name} kcm_knemo knemod %{name}.lang
-%endif
 
 %files -f %{name}.lang
 %{_kde_bindir}/knemo

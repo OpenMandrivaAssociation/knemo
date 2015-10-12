@@ -1,10 +1,10 @@
 Summary:	The KDE Network Monitor
 Name:		knemo
-Version:	0.7.6
-Release:	4
+Version:	0.7.7
+Release:	1
 License:	GPL
 Group:		Graphical desktop/KDE
-Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.bz2
+Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.xy
 URL:		http://kde-apps.org/content/show.php?content=12956
 BuildRequires:	kdelibs4-devel
 BuildRequires:	libiw-devel

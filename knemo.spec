@@ -4,7 +4,7 @@ Version:	0.7.7
 Release:	1
 License:	GPL
 Group:		Graphical desktop/KDE
-Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.xy
+Source0:	http://kde-apps.org/CONTENT/content-files/12956-%{name}-%{version}.tar.xz
 URL:		http://kde-apps.org/content/show.php?content=12956
 BuildRequires:	kdelibs4-devel
 BuildRequires:	libiw-devel
